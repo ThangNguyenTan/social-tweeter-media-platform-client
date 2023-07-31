@@ -1,0 +1,50 @@
+#update-settings-page {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.update-settings-page__content {
+  max-width: 840px;
+  width: 100%;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 3rem;
+}
+
+.update-settings__header {
+  margin-bottom: 3rem;
+}
+
+.update-settings__header__title {
+  font-weight: 400;
+  font-size: 2.3rem;
+  margin-bottom: 1rem;
+}
+
+.update-settings__header__description {
+  font-weight: 300;
+  font-size: 1rem;
+  color: #828282;
+}
+
+.update-settings__content {
+  max-width: 60%;
+}
+
+.update-settings__content .form label {
+  margin-bottom: 0.5rem;
+  display: inline-block;
+  color: #4f4f4f;
+  font-size: 0.9rem;
+}
+
+.update-settings__content .form .form-group {
+  margin-bottom: 2.4rem;
+}
+
+.update-settings__content .form .form-group__input input {
+  font-size: 1rem;
+}

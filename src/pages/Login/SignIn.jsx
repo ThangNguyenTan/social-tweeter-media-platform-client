@@ -9,11 +9,12 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
+import { useNavigate, Link } from "react-router-dom";
 
 import "./sign-in.css";
 import { signin } from "../../apis";
 import { toast } from "react-toastify";
-import { Link } from "react-router-dom";
+import useAuthToken from "../../hooks/useAuthToken";
 
 const SigninSchema = Yup.object().shape({
   email: Yup.string()
@@ -23,6 +24,9 @@ const SigninSchema = Yup.object().shape({
 });
 
 const SignIn = () => {
+  const navigate = useNavigate();
+  const { saveAuthToken } = useAuthToken();
+
   return (
     <div id="sign-in-page" className="auth-form">
       <div className="auth-form__container">
@@ -43,6 +47,10 @@ const SignIn = () => {
               const response = await signin(values);
               if (response.success) {
                 toast.success(`${response.message}`);
+                saveAuthToken(response.token);
+                setTimeout(() => {
+                  navigate("/settings");
+                }, 2000);
               } else {
                 toast.error(response.message);
               }
