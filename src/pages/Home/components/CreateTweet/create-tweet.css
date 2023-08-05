@@ -1,0 +1,34 @@
+.create-tweet__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.create-tweet__content .left {
+  flex: 8%;
+}
+
+.create-tweet__content .right {
+  flex: 92%;
+  padding-left: 10px;
+}
+
+.create-tweet__profile-image img {
+  border-radius: 12px;
+}
+
+.create-tweet__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.create-tweet__footer .left {
+  flex: 50%;
+}
+
+.create-tweet__footer .right {
+  flex: 50%;
+  text-align: right;
+}

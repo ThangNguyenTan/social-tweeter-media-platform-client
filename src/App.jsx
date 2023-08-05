@@ -1,4 +1,11 @@
-import { SignUp, SignIn, Settings, UpdateSettings, Home } from "./pages";
+import {
+  SignUp,
+  SignIn,
+  Settings,
+  UpdateSettings,
+  Home,
+  Profile,
+} from "./pages";
 import { ToastContainer } from "react-toastify";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { GoogleOAuthProvider } from "@react-oauth/google";
@@ -16,6 +23,7 @@ function App() {
           <Router>
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/profile" element={<Profile />} />
               <Route path="/signin" element={<SignIn />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/settings" element={<Settings />} />
