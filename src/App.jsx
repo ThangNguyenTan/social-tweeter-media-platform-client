@@ -1,4 +1,4 @@
-import { SignUp, SignIn, Settings, UpdateSettings } from "./pages";
+import { SignUp, SignIn, Settings, UpdateSettings, Home } from "./pages";
 import { ToastContainer } from "react-toastify";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { GoogleOAuthProvider } from "@react-oauth/google";
@@ -15,7 +15,8 @@ function App() {
         <GoogleOAuthProvider clientId="144717482930-tdan13gajurfuudo66r28bbbdlv3iera.apps.googleusercontent.com">
           <Router>
             <Routes>
-              <Route path="/" element={<SignIn />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/signin" element={<SignIn />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/settings" element={<Settings />} />
               <Route path="/settings/update" element={<UpdateSettings />} />
