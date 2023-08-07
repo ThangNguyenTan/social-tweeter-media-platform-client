@@ -1,0 +1,81 @@
+.user-nav {
+  position: relative;
+}
+
+.user-nav__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.user-nav__container:hover {
+  background-color: #f2f2f2;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.user-nav__profile-image {
+  flex: 25%;
+}
+
+.user-nav__profile-image img {
+  border-radius: 12px;
+}
+
+.user-nav__name {
+  flex: 65%;
+  margin-left: 10px;
+}
+
+.user-nav__name p {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.user-nav__icon {
+  flex: 10%;
+}
+
+.user-nav__option {
+  position: absolute;
+  top: 70px;
+  left: -40px;
+  display: block;
+  width: 100%;
+}
+
+.user-nav__option-list hr {
+  margin-bottom: 10px;
+}
+
+.user-nav__option-item {
+  margin-bottom: 10px;
+}
+
+.user-nav__option-item:last-child {
+  margin-bottom: 0;
+}
+
+.user-nav__option-link {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-radius: 12px;
+}
+
+.user-nav__option-link * {
+  color: #4f4f4f;
+}
+
+.user-nav__option-link .icon {
+  margin-right: 15px;
+}
+
+.user-nav__option-link:hover {
+  background-color: #f2f2f2;
+}
+
+.user-nav__option-link.logout * {
+  color: #eb5757;
+}

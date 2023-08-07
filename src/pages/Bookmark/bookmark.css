@@ -1,0 +1,26 @@
+#bookmark-page {
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  background-color: #f2f2f2;
+}
+
+.bookmark-page__container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1080px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.bookmark-page__container .left {
+  flex: 70%;
+  margin: 10px;
+}
+
+.bookmark-page__container .right {
+  flex: 30%;
+  margin: 10px;
+}

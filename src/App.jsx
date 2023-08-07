@@ -5,13 +5,15 @@ import {
   UpdateSettings,
   Home,
   Profile,
+  Explore,
+  Bookmark,
 } from "./pages";
 import { ToastContainer } from "react-toastify";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { GoogleOAuthProvider } from "@react-oauth/google";
 import { QueryClientProvider, QueryClient } from "react-query";
 
 import "react-toastify/dist/ReactToastify.css";
+import { Navbar } from "./components";
 
 const queryClient = new QueryClient();
 
@@ -19,18 +21,19 @@ function App() {
   return (
     <div className="App">
       <QueryClientProvider client={queryClient}>
-        <GoogleOAuthProvider clientId="144717482930-tdan13gajurfuudo66r28bbbdlv3iera.apps.googleusercontent.com">
-          <Router>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/signin" element={<SignIn />} />
-              <Route path="/signup" element={<SignUp />} />
-              <Route path="/settings" element={<Settings />} />
-              <Route path="/settings/update" element={<UpdateSettings />} />
-            </Routes>
-          </Router>
-        </GoogleOAuthProvider>
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/explore" element={<Explore />} />
+            <Route path="/bookmark" element={<Bookmark />} />
+            <Route path="/signin" element={<SignIn />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/settings/update" element={<UpdateSettings />} />
+          </Routes>
+        </Router>
       </QueryClientProvider>
       <ToastContainer />
     </div>
