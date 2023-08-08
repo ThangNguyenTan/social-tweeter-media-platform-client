@@ -1,0 +1,4 @@
+.interactions-item-like.active *,
+.interactions-item-like:hover {
+  color: #eb5757;
+}

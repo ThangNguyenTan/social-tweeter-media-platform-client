@@ -9,8 +9,8 @@
 }
 
 .create-tweet__content .right {
-  flex: 92%;
-  padding-left: 10px;
+  flex: 91%;
+  padding-left: 1%;
 }
 
 .create-tweet__profile-image img {

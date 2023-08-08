@@ -1,39 +1,57 @@
 import React from "react";
-
-import "./post-item.css";
 import {
   faBookmark,
   faComment,
-  faHeart,
   faRecycle,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const PostItem = () => {
+import { formatDate } from "../../utils";
+import { Comment, LikeButton } from "./components";
+
+import "./post-item.css";
+
+const PostItem = ({ post }) => {
+  const {
+    user,
+    createdAt,
+    content,
+    imageURL,
+    bookmarks,
+    comments,
+    retweets,
+    userLikedId: postUserLikedId,
+    _id: currentPostId,
+  } = post;
+  const { profileImageURL, username } = user;
+
+  const renderComments = () => {
+    return comments.map((comment) => (
+      <Comment key={comment._id} commentItem={comment} />
+    ));
+  };
+
   return (
     <div className="box-item post-item">
       <div className="post-item__header">
         <div className="post-item__header__image">
-          <img src="/assets/profile.jpg" className="img-fluid" alt="" />
+          <img src={profileImageURL} className="img-fluid" alt="" />
         </div>
         <div className="post-item__header__info">
-          <h4>Mikael Stanley</h4>
-          <p>24 August at 20:43</p>
+          <h4>{username}</h4>
+          <p>{formatDate(createdAt)}</p>
         </div>
       </div>
       <div className="post-item__tweet">
-        <p>
-          “We travel, some of us forever, to seek other places, other lives,
-          other souls.” – Anais Nin
-        </p>
+        <p>{content}</p>
         <div className="post-item__tweet__image">
-          <img src="/assets/profile.jpg" className="img-fluid" alt="" />
+          <img src={imageURL} className="img-fluid" alt="" />
         </div>
       </div>
       <div className="post-item__meta">
-        <p>449 Comments</p>
-        <p>59k Retweets</p>
-        <p>234 Saved</p>
+        <p>{comments.length} Comments</p>
+        <p>{retweets.length} Retweets</p>
+        <p>{bookmarks.length} Saved</p>
       </div>
       <div className="post-item__interactions">
         <div className="interactions__item interactions-item interactions-item-comment">
@@ -42,19 +60,19 @@ const PostItem = () => {
           </div>
           <div className="interactions__item__text">Comment</div>
         </div>
-        <div className="interactions__item interactions-item interactions-item-retweet active">
+        <div className="interactions__item interactions-item interactions-item-retweet">
           <div className="interactions__item__icon">
             <FontAwesomeIcon icon={faRecycle} />
           </div>
           <div className="interactions__item__text">Retweet</div>
         </div>
-        <div className="interactions__item interactions-item interactions-item-like active">
-          <div className="interactions__item__icon">
-            <FontAwesomeIcon icon={faHeart} />
-          </div>
-          <div className="interactions__item__text">Like</div>
-        </div>
-        <div className="interactions__item interactions-item interactions-item-save active">
+        <LikeButton
+          postUserLikedId={postUserLikedId}
+          currentPostId={currentPostId}
+        />
+        <div
+          className={`interactions__item interactions-item interactions-item-save`}
+        >
           <div className="interactions__item__icon">
             <FontAwesomeIcon icon={faBookmark} />
           </div>
@@ -73,38 +91,7 @@ const PostItem = () => {
           />
         </div>
       </div>
-      <div className="post-item__comment-list">
-        <div className="comment-item">
-          <div className="comment-item__profile-image">
-            <img src="/assets/profile.jpg" className="img-fluid" alt="" />
-          </div>
-          <div className="comment-item__container">
-            <div className="comment-item__inner-container">
-              <div className="comment-item__header">
-                <h4>Waqar Bloom</h4>
-                <p>24 August at 20:43</p>
-              </div>
-              <div className="comment-item__content">
-                <p>
-                  I’ve seen awe-inspiring things that I thought I’d never be
-                  able to explain to another person.
-                </p>
-              </div>
-            </div>
-            <div className="comment-item__meta">
-              <div className="comment-item__like">
-                <div className="icon">
-                  <FontAwesomeIcon icon={faHeart} />
-                </div>
-                <div className="text">
-                  <p>Like</p>
-                </div>
-              </div>
-              <p>12k Likes</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div className="post-item__comment-list">{renderComments()}</div>
     </div>
   );
 };

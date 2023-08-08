@@ -21,7 +21,7 @@ const Settings = () => {
 
   if (isError) {
     toast.error(error.message, {
-      toastId: "success1",
+      toastId: "error-1",
     });
     return <ErrorDisplayer errorMessage={error.message} />;
   }

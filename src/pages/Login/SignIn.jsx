@@ -49,7 +49,7 @@ const SignIn = () => {
                 toast.success(`${response.message}`);
                 saveAuthToken(response.token);
                 setTimeout(() => {
-                  navigate("/settings");
+                  navigate("/");
                 }, 2000);
               } else {
                 toast.error(response.message);

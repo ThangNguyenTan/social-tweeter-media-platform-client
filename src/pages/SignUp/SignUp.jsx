@@ -10,13 +10,10 @@ import {
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { useNavigate, Link } from "react-router-dom";
-import { useGoogleLogin } from "@react-oauth/google";
+import { toast } from "react-toastify";
 
 import "./sign-up.css";
-import { signinGoogle, signup } from "../../apis";
-import { toast } from "react-toastify";
-import axios from "axios";
-import { SERVER_URL } from "../../constants";
+import { signup } from "../../apis";
 
 const SignupSchema = Yup.object().shape({
   email: Yup.string()
@@ -26,26 +23,7 @@ const SignupSchema = Yup.object().shape({
 });
 
 const SignUp = () => {
-  const responseGoogle = async (response) => {
-    console.log(response);
-    try {
-      const res = await axios.get(`${SERVER_URL}/api/auth/google/callback`, {
-        params: { ...response },
-      });
-      console.log(res.data.token);
-    } catch (error) {
-      console.error("Google authentication failed:", error);
-    }
-  };
-
   const navigate = useNavigate();
-  const login = useGoogleLogin({
-    onSuccess: (tokenResponse) => responseGoogle(tokenResponse),
-  });
-
-  const signInGoogleHandler = () => {
-    login();
-  };
 
   return (
     <div id="sign-up-page" className="auth-form">
@@ -73,10 +51,10 @@ const SignUp = () => {
               const response = await signup(values);
               if (response.success) {
                 toast.success(
-                  `${response.message}. You will be redirected to login page.`
+                  `${response.message}. You will be redirected to the login page.`
                 );
                 setTimeout(() => {
-                  navigate("/");
+                  navigate("/signin");
                 }, 2000);
               } else {
                 toast.error(response.message);
@@ -133,7 +111,7 @@ const SignUp = () => {
         <div className="auth-form__oauth">
           <p>or continue with these social profile</p>
           <ul className="oauth__list">
-            <li className="oauth__list__item" onClick={signInGoogleHandler}>
+            <li className="oauth__list__item">
               <FontAwesomeIcon icon={faGoogle} />
             </li>
             <li className="oauth__list__item">
@@ -147,7 +125,7 @@ const SignUp = () => {
             </li>
           </ul>
           <p>
-            Already a member? <Link to="/">Login</Link>
+            Already a member? <Link to="/signin">Login</Link>
           </p>
         </div>
       </div>

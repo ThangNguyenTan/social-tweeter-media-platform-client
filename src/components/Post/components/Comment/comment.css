@@ -1,0 +1,66 @@
+.comment-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.comment-item__profile-image {
+  flex: 8%;
+}
+
+.comment-item__container {
+  flex: 92%;
+  margin-left: 5px;
+}
+
+.comment-item__profile-image img {
+  border-radius: 12px;
+}
+
+.comment-item__inner-container {
+  background-color: #fafafa;
+  padding: 15px;
+  border-radius: 12px;
+}
+
+.comment-item__header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.comment-item__header p {
+  color: #bdbdbd;
+  margin-left: 10px;
+  font-size: 0.8rem;
+}
+
+.comment-item__meta {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 10px;
+  color: #bdbdbd;
+  font-size: 0.8rem;
+}
+
+.comment-item__like {
+  display: flex;
+  justify-self: center;
+  color: #bdbdbd;
+  cursor: pointer;
+}
+
+.comment-item__like:hover * {
+  color: #eb5757;
+}
+
+.comment-item__like .icon {
+  margin-right: 5px;
+  color: #bdbdbd;
+}
+
+.comment-item__meta > p::before {
+  content: "-";
+  margin-right: 5px;
+  margin-left: 5px;
+}
