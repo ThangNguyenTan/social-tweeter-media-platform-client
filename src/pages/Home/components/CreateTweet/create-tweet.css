@@ -1,7 +1,6 @@
 .create-tweet__content {
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
 .create-tweet__content .left {
@@ -13,22 +12,26 @@
   padding-left: 1%;
 }
 
+.create-tweet__form {
+  margin-top: 14px;
+}
+
 .create-tweet__profile-image img {
   border-radius: 12px;
 }
 
-.create-tweet__footer {
+.create-tweet-form__footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
-.create-tweet__footer .left {
+.create-tweet-form__footer .left {
   flex: 50%;
 }
 
-.create-tweet__footer .right {
+.create-tweet-form__footer .right {
   flex: 50%;
   text-align: right;
 }

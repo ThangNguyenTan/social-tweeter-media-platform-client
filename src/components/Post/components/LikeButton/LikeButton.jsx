@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { likePost, unLikePost } from "../../../../apis";
 
+import "./like-button.css";
+
 const LikeButton = ({ postUserLikedId, currentPostId }) => {
   const [userLikedId, setUserLikedId] = useState(postUserLikedId);
 

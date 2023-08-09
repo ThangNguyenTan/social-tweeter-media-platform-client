@@ -32,7 +32,6 @@ const Home = () => {
   }
 
   const { posts } = data;
-  console.log(posts);
 
   const renderPosts = () => {
     return posts.map((post) => <PostItem key={post._id} post={post} />);
